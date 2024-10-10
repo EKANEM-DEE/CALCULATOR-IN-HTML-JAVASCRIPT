@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="row">
+    <input type="text" value="" id="display">
+    <div class="row1">
+    <button onclick="appendChildDisplay('1')">1</button>
+    <button onclick="appendChildDisplay('2')">2</button>
+    <button onclick="appendChildDisplay('3')">3</button>
+    <button onclick="appendChildDisplay('4')">4</button>
+    </div>
+    <div class="row2">
+    <button onclick="appendChildDisplay('5')">5</button>
+    <button onclick="appendChildDisplay('6')">6</button>
+    <button onclick="appendChildDisplay('7')">7</button>
+    <button onclick="appendChildDisplay('8')">8</button>
+    </div>
+    <div class="row3">
+    <button onclick="appendChildDisplay('9')">9</button>
+    <button onclick="appendChildDisplay('0')">0</button>
+    <button onclick="appendChildDisplay('+')">+</button>
+    <button onclick="appendChildDisplay('-')">-</button>
+    </div>
+    <div class="row4">
+    <button onclick="appendChildDisplay('/')">/</button>
+    <button onclick="appendChildDisplay('*')">*</button>
+    <button onclick="appendChildDisplay('%')">%</button>
+    <button onclick="clearResult()">clear</button>
+    </div>
+    <div class="last">
+    <button onclick="calculate()">=</button>
+    </div>
+    </div>
+    <style>
+        body{
+            background-color: rebeccapurple;
+        }
+        .row{
+            margin-left: 10rem;
+            margin-top: 5rem;
+            background-color: blueviolet;
+            margin-right: 5rem;
+            width: 60%;
+            height: auto;
+        }
+        input{
+            font-size: 30px;
+            height: 5rem;
+            width: 90%;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            margin-left: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .row1 button{
+            font-size: 20px;
+            border-radius: 50%;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            width: 4rem;
+            border: 1px solid transparent; 
+        }
+
+        .row2 button{
+            font-size: 20px;
+            border-radius: 50%;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            width: 4rem;
+            border: 1px solid transparent; 
+        }
+
+        .row3 button{
+            font-size: 20px;
+            border-radius: 50%;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            width: 4rem;
+            border: 1px solid transparent; 
+        }
+        .row4 button{
+            font-size: 20px;
+            text-align: center;
+            border-radius: 50%;
+            text-align: center;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+            height: 65px;
+            width: 4rem;
+            border: 1px solid transparent; 
+        }
+        .last button{
+            border-radius: 10px;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            width: 20rem;
+            border: 1px solid transparent; 
+        }
+        button:hover {
+            font-size: 20px;
+            background-color: black;
+            color: white;
+            transition: 0.5s ease-in-out;
+        }
+
+
+
+
+
+    </style>
+
+    <script>
+        const display= document.getElementById('display');
+        function appendChildDisplay(value) {
+            display.value+=value
+        }
+        function clearResult() {
+            display.value ='';
+        }
+        function calculate() {
+            try{
+                display.value= eval(display.value);
+            } catch(error) {
+                display.value='error';
+            }
+        }
+    </script>
+      <!--   <div class="total">
+            <input type="text">
+        <div class="one-row">
+            <button>1</button>
+            <button >2</button>
+            <button >3</button>
+        </div>
+        <div class="two-row">
+            <button >4</button>
+            <button>5</button>
+            <button >6</button>
+        </div>
+        <div class="three-row">
+            <button >7</button>
+            <button>8</button>
+            <button>9</button>
+        </div>
+        <div class="four-row">
+            <button>+</button>
+            <button>-</button>
+            <button>*</button>
+        </div>
+        <div class="last-row">
+            <button >%</button>
+            <button>=</button>
+        </div>
+        </div>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .total{
+                justify-content: center;
+                place-content: center;
+                align-items: center;
+                margin-top: 10rem;
+                margin-left: 10rem;
+                margin-right: 30rem;
+               /*  display: block; */
+               background-color: rgb(46, 39, 150);
+               width: 50%;
+            }
+            input{
+                padding: 2rem;
+                border-radius: 5px;
+                margin: 1rem;
+            }
+
+            .one-row button {
+                margin-left: 1rem;
+                padding: 1.7rem;
+                height: 2rem;
+                width: auto;
+                margin-bottom: 5px;
+                border-radius: 10px;
+            }
+            .two-row button{
+                margin-left: 1rem;
+                padding: 1.7rem;
+                height: 2rem;
+                width: auto;
+                margin-bottom: 5px;
+                border-radius: 10px;
+            }
+            .three-row button{
+                margin-left: 1rem;
+                padding: 1.7rem;
+                height: 2rem;
+                width: auto;
+                margin-bottom: 5px;
+                border-radius: 10px;
+            }
+            .four-row button {
+                margin-left: 1rem;
+                padding: 1.7rem;
+                height: 2rem;
+                width: auto;
+                margin-bottom: 5px;
+                border-radius: 10px;
+            }
+            .last-row button{
+                margin-left: 1rem;
+                padding: 1.7rem;
+                height: 2rem;
+                width: auto;
+                margin-bottom: 5px;
+                border-radius: 10px;
+            }
+            button:hover{
+                background-color: brown;
+                color: white;
+                scale: 1.1;
+                text-align: center;
+                transition: 1s ease-in-out;
+
+            }
+            
+
+        </style>
+
+
+
+
+
+
+    <!-- <div class="newbutto">
+    <button class="button">click here</button>
+</div> -->
+   <!--  <style>
+        .button{
+            background-color: rebeccapurple;
+            color: white;
+            text-align: center;
+            align-items: center;
+            width: auto;
+            height: 3rem;
+
+            
+        }
+        .button:hover{
+                background-color: red;
+                transition: 2s;
+                color: black;
+            }
+    </style> -->
+    <!-- <script>
+        const button= document.querySelector('.button');
+        const newbutto= document.querySelector('.newbutto');
+        newbutto.onclick=function() {
+            let newbutto =document.createElement('button')
+            newbutto.appendChild(newbutto)
+        } 
+        button.onclick=function() {
+                alert('hello world')
+
+
+        
+        }
+
+    </script> -->
+</body> -->
+</html>
